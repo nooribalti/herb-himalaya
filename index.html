@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sehat Bazaar – Coming Soon</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1584270354949-1f98a1c7e97b?fit=crop&w=1600&q=80') no-repeat center center/cover;
+      color: #fff;
+      text-align: center;
+    }
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      color: #a4d07b;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 10px auto 20px;
+      max-width: 600px;
+    }
+    #countdown {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      color: #ffe17c;
+    }
+    input[type="email"] {
+      padding: 12px;
+      width: 250px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+      font-size: 1em;
+    }
+    button {
+      padding: 12px 20px;
+      background: #a4d07b;
+      border: none;
+      border-radius: 5px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .socials {
+      margin-top: 30px;
+    }
+    .socials a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.4em;
+      text-decoration: none;
+    }
+    @media (max-width: 600px) {
+      input[type="email"] {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>🌿 Sehat Bazaar</h1>
+    <p><strong>Organic Maza, Desi Andaaz</strong></p>
+    <p>We’re bringing you the finest Himalayan herbs, organic dry fruits, and wellness blends—straight from nature, with love.</p>
+    <div id="countdown"></div>
+
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Notify Me</button>
+    </form>
+
+    <div class="socials">
+      <p>Follow us:</p>
+      <a href="#" target="_blank">Instagram</a>
+      <a href="#" target="_blank">Facebook</a>
+    </div>
+  </div>
+
+  <script>
+    // Countdown Timer to a fixed date
+    const launchDate = new Date("2025-08-30T00:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        countdown.innerHTML = "We're Live!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `⏳ Launching in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+</body>
+</html>
+
+
